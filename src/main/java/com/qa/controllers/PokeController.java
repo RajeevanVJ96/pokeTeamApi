@@ -14,23 +14,23 @@ public class PokeController {
     @Autowired
     private PokeRepository repository;
 
-    @RequestMapping(value = "notes", method = RequestMethod.GET)
+    @RequestMapping(value = "pokemons", method = RequestMethod.GET)
     public List<Pokemon> listAllPokemon(){
         return repository.findAll();
     }
 
-    @RequestMapping(value = "notes", method = RequestMethod.POST)
+    @RequestMapping(value = "pokemons", method = RequestMethod.POST)
     public Pokemon addPokemon(@RequestBody Pokemon poke){
         return repository.saveAndFlush(poke);
     }
 
-    @RequestMapping(value = "notes/{id}", method = RequestMethod.GET)
+    @RequestMapping(value = "pokemons/{id}", method = RequestMethod.GET)
     public Pokemon getPokemon(@PathVariable Long id){
         return repository.findOne(id);
 
     }
 
-    @RequestMapping(value = "notes/{id}", method = RequestMethod.DELETE)
+    @RequestMapping(value = "pokemons/{id}", method = RequestMethod.DELETE)
     public void delPokemon(@PathVariable Long id){
         repository.delete(id);
     }
