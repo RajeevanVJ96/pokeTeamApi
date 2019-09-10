@@ -1,8 +1,6 @@
 package com.qa.controllers;
 
 import com.qa.models.PokeTeam;
-import com.qa.models.Pokemon;
-import com.qa.repository.PokeRepository;
 import com.qa.repository.PokeTeamRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;

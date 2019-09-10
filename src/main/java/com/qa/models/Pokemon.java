@@ -11,12 +11,12 @@ public class Pokemon {
     @Id
     @GeneratedValue(strategy= GenerationType.AUTO)
     Long id;
-    String name;
-    int pid;
-    String m1;
-    String m2;
-    String m3;
-    String m4;
+    private String name;
+    private int pid;
+    private String m1;
+    private String m2;
+    private String m3;
+    private String m4;
 
     public Pokemon (){
         super();
