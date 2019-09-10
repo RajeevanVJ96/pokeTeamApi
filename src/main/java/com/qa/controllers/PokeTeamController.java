@@ -1,6 +1,7 @@
 package com.qa.controllers;
 
 import com.qa.models.PokeTeam;
+import com.qa.models.Pokemon;
 import com.qa.repository.PokeTeamRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
@@ -21,8 +22,8 @@ public class PokeTeamController {
     }
 
     @RequestMapping(value = "pokemonteam", method = RequestMethod.POST)
-    public PokeTeam addPokemon(@RequestBody PokeTeam poke){
-        return repository.saveAndFlush(poke);
+    public void addPokemon(@RequestBody int pid){
+        return repository.saveAndFlush(pid);
     }
 
     @RequestMapping(value = "pokemonteam/{id}", method = RequestMethod.GET)

@@ -12,24 +12,25 @@ public class PokeTeam {
     @GeneratedValue(strategy= GenerationType.AUTO)
     Long id;
     private String name;
-    private int pid;
-    private String m1;
-    private String m2;
-    private String m3;
-    private String m4;
+    private int pid1;
+    private int pid2;
+    private int pid3;
+    private int pid4;
+    private int pid5;
+    private int pid6;
 
     public PokeTeam(){};
 
-    public PokeTeam(String name, int pid, String m1, String m2, String m3, String m4) {
+    public PokeTeam(Long id, String name, int pid1, int pid2, int pid3, int pid4, int pid5, int pid6) {
+        this.id = id;
         this.name = name;
-        this.pid = pid;
-        this.m1 = m1;
-        this.m2 = m2;
-        this.m3 = m3;
-        this.m4 = m4;
+        this.pid1 = pid1;
+        this.pid2 = pid2;
+        this.pid3 = pid3;
+        this.pid4 = pid4;
+        this.pid5 = pid5;
+        this.pid6 = pid6;
     }
-
-
 
     public Long getId() {
         return id;
@@ -47,53 +48,62 @@ public class PokeTeam {
         this.name = name;
     }
 
-    public int getPid() {
-        return pid;
+    public int getPid1() {
+        return pid1;
     }
 
-    public void setPid(int pid) {
-        this.pid = pid;
+    public void setPid1(int pid1) {
+        this.pid1 = pid1;
     }
 
-    public String getM1() {
-        return m1;
+    public int getPid2() {
+        return pid2;
     }
 
-    public void setM1(String m1) {
-        this.m1 = m1;
+    public void setPid2(int pid2) {
+        this.pid2 = pid2;
     }
 
-    public String getM2() {
-        return m2;
+    public int getPid3() {
+        return pid3;
     }
 
-    public void setM2(String m2) {
-        this.m2 = m2;
+    public void setPid3(int pid3) {
+        this.pid3 = pid3;
     }
 
-    public String getM3() {
-        return m3;
+    public int getPid4() {
+        return pid4;
     }
 
-    public void setM3(String m3) {
-        this.m3 = m3;
+    public void setPid4(int pid4) {
+        this.pid4 = pid4;
     }
 
-    public String getM4() {
-        return m4;
+    public int getPid5() {
+        return pid5;
     }
 
-    public void setM4(String m4) {
-        this.m4 = m4;
+    public void setPid5(int pid5) {
+        this.pid5 = pid5;
+    }
+
+    public int getPid6() {
+        return pid6;
+    }
+
+    public void setPid6(int pid6) {
+        this.pid6 = pid6;
     }
 
     public void setPokeTeam(PokeTeam p){
         this.name = p.name;
-        this.pid = p.pid;
-        this.m1 = p.m1;
-        this.m2 = p.m2;
-        this.m3 = p.m3;
-        this.m4 = p.m4;
+        this.pid1 = p.pid1;
+        this.pid2 = p.pid2;
+        this.pid3 = p.pid3;
+        this.pid4 = p.pid4;
+        this.pid5 = p.pid5;
+        this.pid6 = p.pid6;
     }
 
 

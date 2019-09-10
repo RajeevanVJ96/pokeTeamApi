@@ -33,14 +33,17 @@ public class PokeController {
 
     @Transactional
     @RequestMapping(value = "pokemon/{id}", method = RequestMethod.PUT)
-    public void updatePokemon(@PathVariable Long id, @RequestBody Pokemon poke){
+    public Pokemon updatePokemon(@PathVariable Long id, @RequestBody Pokemon poke){
         Pokemon p = repository.findOne(id);
         p.setPokemon(poke);
+        return p;
     }
 
     @RequestMapping(value = "pokemon/{id}", method = RequestMethod.DELETE)
-    public void delPokemon(@PathVariable Long id){
+    public Pokemon delPokemon(@PathVariable Long id){
+        Pokemon existing = repository.findOne(id);
         repository.delete(id);
+        return existing;
     }
 
 
