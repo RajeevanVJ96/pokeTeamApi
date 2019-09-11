@@ -21,8 +21,8 @@ public class PokeTeam {
 
     public PokeTeam(){};
 
-    public PokeTeam(Long id, String name, int pid1, int pid2, int pid3, int pid4, int pid5, int pid6) {
-        this.id = id;
+    public PokeTeam(String name, int pid1, int pid2, int pid3, int pid4, int pid5, int pid6) {
+        super();
         this.name = name;
         this.pid1 = pid1;
         this.pid2 = pid2;

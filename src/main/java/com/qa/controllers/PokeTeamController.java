@@ -22,8 +22,8 @@ public class PokeTeamController {
     }
 
     @RequestMapping(value = "pokemonteam", method = RequestMethod.POST)
-    public void addPokemon(@RequestBody int pid){
-        return repository.saveAndFlush(pid);
+    public PokeTeam addPokemon(@RequestBody PokeTeam poke){
+        return repository.saveAndFlush(poke);
     }
 
     @RequestMapping(value = "pokemonteam/{id}", method = RequestMethod.GET)
@@ -34,9 +34,10 @@ public class PokeTeamController {
 
     @Transactional
     @RequestMapping(value = "pokemonteam/{id}", method = RequestMethod.PUT)
-    public void updatePokemon(@PathVariable Long id, @RequestBody PokeTeam poke){
+    public PokeTeam updatePokemon(@PathVariable Long id, @RequestBody PokeTeam poke){
         PokeTeam p = repository.findOne(id);
         p.setPokeTeam(poke);
+        return p;
     }
 
     @RequestMapping(value = "pokemonteam/{id}", method = RequestMethod.DELETE)
