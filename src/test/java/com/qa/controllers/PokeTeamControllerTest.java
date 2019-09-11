@@ -56,7 +56,7 @@ public class PokeTeamControllerTest {
 
         when(repository.saveAndFlush(pokeTeam)).thenReturn(pokeTeam);
 
-        assertEquals(pokeTeamController.addPokemontoTeam(2), 1 );
+        assertEquals(pokeTeamController.addPokemontoTeam(pokeTeam), pokeTeam );
 
     }
 
