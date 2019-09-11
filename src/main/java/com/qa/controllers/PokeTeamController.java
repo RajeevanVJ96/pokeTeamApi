@@ -22,22 +22,9 @@ public class PokeTeamController {
     }
 
     @RequestMapping(value = "pokemonteam", method = RequestMethod.POST)
-    public PokeTeam addPokemon(@RequestBody PokeTeam poke){
-        return repository.saveAndFlush(poke);
-    }
+    public PokeTeam addPokemontoTeam(@RequestBody PokeTeam pteam){
+        return  repository.saveAndFlush(pteam);
 
-    @RequestMapping(value = "pokemonteam/{id}", method = RequestMethod.GET)
-    public PokeTeam getPokemon(@PathVariable Long id){
-        return repository.findOne(id);
-
-    }
-
-    @Transactional
-    @RequestMapping(value = "pokemonteam/{id}", method = RequestMethod.PUT)
-    public PokeTeam updatePokemon(@PathVariable Long id, @RequestBody PokeTeam poke){
-        PokeTeam p = repository.findOne(id);
-        p.setPokeTeam(poke);
-        return p;
     }
 
     @RequestMapping(value = "pokemonteam/{id}", method = RequestMethod.DELETE)

@@ -30,7 +30,7 @@ public class PokeTeam {
         this.id = id;
     }
 
-    public void setPid1(int pid1) {
+    public void setPid(int pid) {
         this.pid = pid;
     }
 

@@ -39,12 +39,11 @@ public class PokeTeamControllerTest {
     public void testListAllPokemon(){
         List<PokeTeam> poketeamlist = new ArrayList<>();
         PokeTeam pteam = new PokeTeam();
-        pteam.setName("The team");
         poketeamlist.add(pteam);
 
         when(repository.findAll()).thenReturn(poketeamlist);
 
-        assertEquals(pokeTeamController.listAllPokemon().get(0).getName(), "The team");
+        assertEquals(pokeTeamController.listAllPokemon(), pteam );
 
     }
 
@@ -53,40 +52,28 @@ public class PokeTeamControllerTest {
         PokeTeam pokeTeam = new PokeTeam();
         Pokemon poke = new Pokemon("Bulbasaur", 1, "Leech Seed",
                 "Sleep Powder" , "Razor Leaf" , "Solar Beam" );
-        pokeTeam.setPid1(poke.getPid());
+        pokeTeam.setPid(poke.getPid());
 
         when(repository.saveAndFlush(pokeTeam)).thenReturn(pokeTeam);
 
-        assertEquals(pokeTeamController.addPokemon(pokeTeam).getPid1(), 1 );
+        assertEquals(pokeTeamController.addPokemontoTeam(2), 1 );
 
     }
 
-    @Test
-    public void testGetPokemon(){
-        PokeTeam pokeTeam = new PokeTeam();
-        pokeTeam.setId(1L);
-        Pokemon poke = new Pokemon("Bulbasaur", 1, "Leech Seed",
-                "Sleep Powder" , "Razor Leaf" , "Solar Beam" );
-        pokeTeam.setPid1(poke.getPid());
 
-        when(repository.findOne(1L)).thenReturn(pokeTeam);
-
-        assertEquals(pokeTeamController.getPokemon(1L).getPid1(), 1);
-    }
-
-    @Test
-    public void testUpdatePokeTeam(){
-        PokeTeam pokeTeam = new PokeTeam();
-        pokeTeam.setId(1L);
-        Pokemon poke = new Pokemon("Bulbasaur", 1, "Leech Seed",
-                "Sleep Powder" , "Razor Leaf" , "Solar Beam" );
-        pokeTeam.setPid1(poke.getPid());
-
-        when(repository.findOne(1L)).thenReturn(pokeTeam);
-
-        assertEquals(pokeTeamController.updatePokemon(1L, pokeTeam), pokeTeam);
-
-    }
+//    @Test
+//    public void testUpdatePokeTeam(){
+//        PokeTeam pokeTeam = new PokeTeam();
+//        pokeTeam.setId(1L);
+//        Pokemon poke = new Pokemon("Bulbasaur", 1, "Leech Seed",
+//                "Sleep Powder" , "Razor Leaf" , "Solar Beam" );
+//        pokeTeam.setPid1(poke.getPid());
+//
+//        when(repository.findOne(1L)).thenReturn(pokeTeam);
+//
+//        assertEquals(pokeTeamController.updatePokemon(1L, pokeTeam), pokeTeam);
+//
+//    }
 
 //    @Test
 //    public void testdelPokemonfromTeam(){
