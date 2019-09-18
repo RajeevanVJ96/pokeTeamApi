@@ -28,7 +28,6 @@ public class PokeController {
     @RequestMapping(value = "pokemon/{id}", method = RequestMethod.GET)
     public Pokemon getPokemon(@PathVariable Long id){
         return repository.findOne(id);
-
     }
 
     @Transactional
