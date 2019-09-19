@@ -2,6 +2,7 @@ package com.qa.controllers;
 
 import com.qa.models.PokeTeam;
 import com.qa.models.Pokemon;
+import com.qa.repository.PokeRepository;
 import com.qa.repository.PokeTeamRepository;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -31,6 +32,9 @@ public class PokeTeamControllerTest {
     @Mock
     private PokeTeamRepository repository;
 
+    @Mock
+    private PokeRepository pokeRepository;
+
     @LocalServerPort
     private int port;
 
@@ -45,7 +49,7 @@ public class PokeTeamControllerTest {
 
         when(repository.findAll()).thenReturn(poketeamlist);
 
-        assertEquals(pokeTeamController.listAllPokemon(), pteam );
+        assertEquals(pokeTeamController.listAllPokemon(), poketeamlist );
 
     }
 
@@ -62,18 +66,22 @@ public class PokeTeamControllerTest {
     }
 
 
-//    @Test
-//    public void testUpdatePokeTeam(){
-//        PokeTeam pokeTeam = new PokeTeam();
-//        pokeTeam.setId(1L);
-//        Pokemon poke = new Pokemon("Bulbasaur", 1, "Leech Seed",
-//                "Sleep Powder" , "Razor Leaf" , "Solar Beam" );
-//        pokeTeam.setPid1(poke.getPid());
-//
-//        when(repository.findOne(1L)).thenReturn(pokeTeam);
-//
-//        assertEquals(pokeTeamController.updatePokemon(1L, pokeTeam), pokeTeam);
-//
-//    }
+    @Test
+    public void testUpdatePokeTeam(){
+        PokeTeam pokeTeam = new PokeTeam();
+        Pokemon oldpoke = new Pokemon();
+        oldpoke.setId(1L);
+        Pokemon newpoke = new Pokemon();
+        newpoke.setId(2L);
+        Set<Pokemon> team = pokeTeam.getPokemon();
+        team.remove(oldpoke);
+        team.add(newpoke);
+        pokeTeam.setPokemon(team);
+
+        when(repository.findOne(1L)).thenReturn(pokeTeam);
+
+        assertEquals(pokeTeamController.updatePokemonTeam(1L, oldpoke.getId(), newpoke.getId()) ,pokeTeam);
+
+    }
 
 }
