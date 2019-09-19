@@ -45,11 +45,4 @@ public class PokeTeamController {
         return returned;
     }
 
-    @RequestMapping(value = "pokemonteam/{id}", method = RequestMethod.DELETE)
-    public void delPokemon(@PathVariable Long id){
-        pokeTeamRepository.delete(id);
-    }
-
-
-
 }

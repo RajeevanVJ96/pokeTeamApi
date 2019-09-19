@@ -14,7 +14,9 @@ import org.springframework.boot.test.web.client.TestRestTemplate;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import static org.junit.Assert.assertEquals;
 import static org.mockito.Mockito.when;
@@ -50,9 +52,8 @@ public class PokeTeamControllerTest {
     @Test
     public void testAddPokemontoTeam(){
         PokeTeam pokeTeam = new PokeTeam();
-        Pokemon poke = new Pokemon("Bulbasaur", 1, "Leech Seed",
-                "Sleep Powder" , "Razor Leaf" , "Solar Beam" );
-        pokeTeam.setPid(poke.getPid());
+        Set<Pokemon> testpoke = new HashSet<Pokemon>();
+        pokeTeam.setPokemon(testpoke);
 
         when(repository.saveAndFlush(pokeTeam)).thenReturn(pokeTeam);
 
@@ -74,22 +75,5 @@ public class PokeTeamControllerTest {
 //        assertEquals(pokeTeamController.updatePokemon(1L, pokeTeam), pokeTeam);
 //
 //    }
-
-//    @Test
-//    public void testdelPokemonfromTeam(){
-//        PokeTeam pokeTeam = new PokeTeam();
-//        pokeTeam.setId(1L);
-//        Pokemon poke = new Pokemon("Bulbasaur", 1, "Leech Seed",
-//                "Sleep Powder" , "Razor Leaf" , "Solar Beam" );
-//        pokeTeam.setPid1(poke.getPid());
-//
-//        when(repository.findOne(1L)).thenReturn(pokeTeam);
-//        repository.delete(pokeTeam);
-//
-//        assertEquals(pokeTeamController.delPokemon(1L), pokeTeam);
-//
-//    }
-
-
 
 }
