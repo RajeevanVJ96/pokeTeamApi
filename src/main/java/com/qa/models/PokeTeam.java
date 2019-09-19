@@ -1,9 +1,8 @@
 package com.qa.models;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 public class PokeTeam {
@@ -11,41 +10,23 @@ public class PokeTeam {
     @Id
     @GeneratedValue(strategy= GenerationType.AUTO)
     Long id;
-    private int pid;
 
-    public PokeTeam(){};
-
-    public PokeTeam(int pid) {
-        super();
-        this.pid = pid;
-    }
+    @OneToMany(fetch = FetchType.EAGER)
+    Set<Pokemon> pokemon = new HashSet<Pokemon>();
 
     public Long getId() {
         return id;
     }
 
-    public int getPid(){return pid; }
-
     public void setId(Long id) {
         this.id = id;
     }
 
-    public void setPid(int pid) {
-        this.pid = pid;
+    public Set<Pokemon> getPokemon() {
+        return pokemon;
     }
 
-    public void setPokeTeam(PokeTeam p){
-        this.pid = p.pid;
-
+    public void setPokemon(Set<Pokemon> pokemon) {
+        this.pokemon = pokemon;
     }
-
-
-
-
-
-
-
-
-
-
 }
