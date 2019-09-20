@@ -21,6 +21,12 @@ import static org.mockito.Mockito.when;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
+
+/*
+This controller test and the team controller test are both similar in that they both runs mockito tests which are fake as doing
+these tests on the actual api database would lead to the data being messed up. Each method is essentially emulating a api call
+and asserting Equals what should be returned.
+ */
 public class PokeControllerTest {
 
     @InjectMocks
