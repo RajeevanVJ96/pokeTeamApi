@@ -6,12 +6,8 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.context.embedded.LocalServerPort;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.boot.test.web.client.TestRestTemplate;
 import org.springframework.test.context.junit4.SpringRunner;
-import org.springframework.web.bind.annotation.RequestMethod;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -21,6 +17,12 @@ import static org.mockito.Mockito.when;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
+
+/*
+This controller test and the team controller test are both similar in that they both runs mockito tests which are fake as doing
+these tests on the actual api database would lead to the data being messed up. Each method is essentially emulating a api call
+and asserting Equals what should be returned.
+ */
 public class PokeControllerTest {
 
     @InjectMocks
@@ -28,12 +30,6 @@ public class PokeControllerTest {
 
     @Mock
     private PokeRepository repository;
-
-    @LocalServerPort
-    private int port;
-
-    @Autowired
-    private TestRestTemplate restTemplate;
 
     @Test
     public void testListAllPokemon(){
