@@ -35,17 +35,31 @@ public class PokeControllerTest {
     public void testListAllPokemon(){
         List<Pokemon> pokelist = new ArrayList<>();
         Pokemon poke = new Pokemon();
+        Pokemon poke2 = new Pokemon("Charizard",6,"Fire Blast", "Dragon Pulse", "Superpower", "Earth Power");
         poke.setName("Bulbasaur");
         poke.setPid(1);
         poke.setM1("Razor Leaf");
         poke.setM2("Sleep Powder");
         poke.setM3("Leech Seed");
         poke.setM4("Slam");
+        poke.getPid();
+        poke.getM1();
+        poke.getM2();
+        poke.getM3();
+        poke.getM4();
         pokelist.add(poke);
+        pokelist.add(poke2);
+
 
         when(repository.findAll()).thenReturn(pokelist);
 
         assertEquals(pokeController.listAllPokemon().get(0).getName(), "Bulbasaur");
+        assertEquals(pokeController.listAllPokemon().get(0).getPid(), 1);
+        assertEquals(pokeController.listAllPokemon().get(0).getM1(), "Razor Leaf");
+        assertEquals(pokeController.listAllPokemon().get(0).getM2(), "Sleep Powder");
+        assertEquals(pokeController.listAllPokemon().get(0).getM3(), "Leech Seed");
+        assertEquals(pokeController.listAllPokemon().get(0).getM4(), "Slam");
+
 
     }
 

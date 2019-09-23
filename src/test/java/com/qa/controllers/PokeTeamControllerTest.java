@@ -46,6 +46,8 @@ public class PokeTeamControllerTest {
         List<PokeTeam> poketeamlist = new ArrayList<>();
         PokeTeam pteam = new PokeTeam();
         poketeamlist.add(pteam);
+        pteam.getId();
+        pteam.setId(1L);
 
         when(repository.findAll()).thenReturn(poketeamlist);
 
